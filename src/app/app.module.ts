@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,10 +23,14 @@ import {FocusTrapModule} from "primeng/focustrap";
 import {CheckboxModule} from "primeng/checkbox";
 import {TreeTableModule} from "primeng/treetable";
 import {TreeModule} from "primeng/tree";
+import { HomePageComponent } from './home-page/home-page.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomePageComponent,
+    ProductsComponent,
 
     // Dialog,
     // ConfirmDialog,
@@ -37,6 +42,7 @@ import {TreeModule} from "primeng/tree";
     CommonModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
     SharedModule,
     TableModule,

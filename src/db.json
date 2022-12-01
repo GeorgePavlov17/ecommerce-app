@@ -1,0 +1,28 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "type": "t-shirt",
+            "color": "white",
+            "size": "M",
+            "image": "https://outoforder.in/wp-content/uploads/2020/03/Plain-White-Tshirt-for-Men.jpg",
+            "availability": true
+        },
+        {
+            "id": "2",
+            "type": "jeans",
+            "color": "blue",
+            "size": "M",
+            "image": "https://images.wrangler.com/is/image/Wrangler/FR47MLW-HERO?$KDP-XLARGE$",
+            "availability": false
+        },
+        {
+            "id": "3",
+            "type": "shoes",
+            "color": "white",
+            "size": "11",
+            "image": "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-PremierLowTop-White-3.jpg?v=1666896034",
+            "availability": true
+        }
+    ]
+}
