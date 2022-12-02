@@ -6,6 +6,7 @@
             "color": "white",
             "size": "M",
             "image": "https://outoforder.in/wp-content/uploads/2020/03/Plain-White-Tshirt-for-Men.jpg",
+            "price": "$34",
             "availability": true
         },
         {
@@ -14,6 +15,7 @@
             "color": "blue",
             "size": "M",
             "image": "https://images.wrangler.com/is/image/Wrangler/FR47MLW-HERO?$KDP-XLARGE$",
+            "price": "$55",
             "availability": false
         },
         {
@@ -22,6 +24,7 @@
             "color": "white",
             "size": "11",
             "image": "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-PremierLowTop-White-3.jpg?v=1666896034",
+            "price": "$72",
             "availability": true
         }
     ]

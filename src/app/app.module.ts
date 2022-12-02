@@ -25,12 +25,16 @@ import {TreeTableModule} from "primeng/treetable";
 import {TreeModule} from "primeng/tree";
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProductsComponent } from './products/products.component';
+import { HeaderComponent } from './header/header.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     ProductsComponent,
+    HeaderComponent,
+    ShoppingCartComponent,
 
     // Dialog,
     // ConfirmDialog,

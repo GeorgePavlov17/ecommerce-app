@@ -4,5 +4,6 @@ export interface Product {
     color: string,
     size: string,
     image: string,
+    price: number,
     availability: boolean
 }

@@ -18,28 +18,34 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts().then((result) => {
-      // console.log(result);
       result.forEach((element: Product) => {
         this.products.push(element);
       });
-      
-    }, (error) =>{
+
+    }, (error) => {
       console.log('error!');
     });
     this.productsToShow = this.products;
   }
 
-  searchProducts() {
-    this.productService.getProducts().then((result) => {
-      console.log(result);
-      result.forEach((element: Product) => {
-        this.products.push(element);
+  searchProducts(query: string): any {
+    const searchedProduct: string = query;
+
+    if (searchedProduct != '' && searchedProduct.length >= 3) {
+      this.productsToShow = [];
+
+      const filtered = this.products.filter(e => {
+        return e.type.toLocaleLowerCase().indexOf(searchedProduct) > -1;
       });
-      
-    }, (error) =>{
-      console.log('error!');
-    });
-    this.productsToShow = this.products;
+
+      this.productsToShow = filtered;
+    } else {
+      this.productsToShow = this.products;
+    }
+  }
+
+  addToFavourite() {
+
   }
 
 }
