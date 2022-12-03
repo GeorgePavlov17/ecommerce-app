@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DividerModule } from "primeng/divider";
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +50,9 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    InputNumberModule,
+    DividerModule,
+    FormsModule,
 
     SharedModule,
     TableModule,

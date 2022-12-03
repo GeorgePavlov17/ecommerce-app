@@ -5,5 +5,6 @@ export interface Product {
     size: string,
     image: string,
     price: number,
+    quantity: number,
     availability: boolean
 }

@@ -1,5 +1,23 @@
-<div *ngFor="let prod of productsToShow">
-    <img class="image" [src]="prod.image" alt="">
-    <span>{{prod.type}}</span>
-{{prod.color}}
+<app-header (onSearch)="searchProducts($event)"></app-header>
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+    <div class="text-900 font-medium text-4xl mb-4">Popular Items</div>
+    <p class="mt-0 p-0 mb-5 text-600 text-2xl">From Brand</p>
+
+    <div class="grid -mt-3 -ml-3 -mr-3">
+        <div *ngFor="let prod of productsToShow" class="col-12 md:col-6 lg:col-3 mb-3 lg:mb-0">
+            <div class="p-2">
+                <div class="relative">
+                    <img class="w-full" [src]="prod.image" alt="">
+                    <button (click)="addToFavourite()" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
+                        <i class="pi pi-heart text-2xl text-500"></i>
+                    </button>
+                </div>
+                <div class="flex align-items-center justify-content-between mt-3 mb-2">
+                    <span class="text-900 font-medium text-xl">{{ prod.type }}</span>
+                    <span class="text-900 text-xl ml-3">{{ prod.price }}</span>
+                </div>
+                <span class="text-600">{{ prod.color }}</span>
+            </div>
+        </div>
+    </div>
 </div>
