@@ -1,7 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../types/Product';
 import { ProductService } from '../services/product/product.service';
-import { resourceUsage } from 'process';
 
 @Component({
   selector: 'app-products',

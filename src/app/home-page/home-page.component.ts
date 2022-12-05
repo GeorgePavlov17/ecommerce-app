@@ -15,28 +15,27 @@ export class HomePageComponent implements OnInit {
   public productsToShow: Product[] = [];
   public searchesToShow: boolean = false;
 
-
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
 
   }
 
-  toggleSearch() {
-    this.searchesToShow = !this.searchesToShow;
-  }
+  // toggleSearch() {
+  //   this.searchesToShow = !this.searchesToShow;
+  // }
 
-  hideResults() {
-    this.searchesToShow = false;
-  }
+  // hideResults() {
+  //   this.searchesToShow = false;
+  // }
 
-  backToHome() {
-    const searchedProduct = this.searchBox.nativeElement.value;
+  // backToHome() {
+  //   const searchedProduct = this.searchBox.nativeElement.value;
 
-    if (!this.searchProducts) {
-      this.productsToShow = this.products;
-    }
-  }
+  //   if (!this.searchProducts) {
+  //     this.productsToShow = this.products;
+  //   }
+  // }
 
   searchProducts(): any {
     const searchedProduct = this.searchBox.nativeElement.value;
