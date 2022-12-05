@@ -30,6 +30,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ProductsComponent } from './products/products.component';
 import { HeaderComponent } from './header/header.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { FavouriteProductsComponent } from './favourite-products/favourite-products.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ProductsComponent,
     HeaderComponent,
     ShoppingCartComponent,
+    FavouriteProductsComponent,
 
     // Dialog,
     // ConfirmDialog,
