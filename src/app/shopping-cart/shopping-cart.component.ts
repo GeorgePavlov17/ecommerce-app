@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../types/Product';
-import { ProductService } from '../services/product/product.service';
 import { ShoppingCartService } from '../services/shopping-cart/shopping-cart.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class ShoppingCartComponent implements OnInit {
   public selectedQty: any;
 
   constructor(
-    private productService: ProductService,
     private shoppingCartService: ShoppingCartService
     ) { }
 

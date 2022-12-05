@@ -1,0 +1,22 @@
+.is-favourite {
+    &::before {
+        color: red;
+    }
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+
+}
+
+.img-thumbnail {
+    width: 100%;
+    padding-top: 137%;
+}

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Product } from '../types/Product';
 import { ProductService } from '../services/product/product.service';
+import { resourceUsage } from 'process';
 
 @Component({
   selector: 'app-products',
@@ -10,9 +11,9 @@ import { ProductService } from '../services/product/product.service';
 export class ProductsComponent implements OnInit {
   public products: Product[] = [];
   public productsToShow: Product[] = [];
+  public favouriteProducts: number[] = [];
 
-  constructor(
-    private productService: ProductService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.productService.getProducts().then((result) => {
@@ -23,6 +24,13 @@ export class ProductsComponent implements OnInit {
     }, (error) => {
       console.log('error!');
     });
+
+    this.productService.getFavourites().then((result) => {
+      this.favouriteProducts = result.map((prod: Product) => {
+        return prod.id;
+      });
+    });
+
     this.productsToShow = this.products;
   }
 
@@ -42,7 +50,19 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  addToFavourite() {
+  addToFavourite(prod: Product) {
+    this.productService.addToFavourite(prod).then((result) => {
+      this.favouriteProducts.push(result.id);
+      console.log(this.favouriteProducts);
+    }, (error) => {
+      console.log('error!');
+    });
+  }
 
+  removeFromFavourite(prod: Product) {
+    this.productService.removeFromFavourite(prod).then((result) => {
+      const index = this.favouriteProducts.indexOf(prod.id);
+      const spliced = this.favouriteProducts.splice(index, 1);
+    });
   }
 }

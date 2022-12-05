@@ -13,7 +13,7 @@ export class ProductService {
 
   getProducts(): Promise<Product[]> {
     const apiUrl = 'http://localhost:5000/products';
-   
+
     return new Promise((resolve, reject) => {
       this.http.get(apiUrl).subscribe((result: any) => {
         resolve(result);
@@ -25,10 +25,34 @@ export class ProductService {
 
   addToFavourite(prod: Product): Promise<Product> {
     const apiUrl = 'http://localhost:5000/favourite_products';
+
+    return new Promise((resolve, reject) => {
+      this.http.post<Product>(apiUrl, prod).subscribe((result: any) => {
+        resolve(result);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+
+  removeFromFavourite(prod: Product): Promise<Product> {
+    const apiUrl = 'http://localhost:5000/favourite_products';
     const url = `${apiUrl}/${prod.id}`;
 
     return new Promise((resolve, reject) => {
-      this.http.post<Product>(url, prod).subscribe((result: any) => {
+      this.http.delete<Product>(url).subscribe((result: any) => {
+        resolve(result);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+
+  getFavourites(): Promise<Product[]> {
+    const apiUrl = 'http://localhost:5000/favourite_products';
+
+    return new Promise((resolve, reject) => {
+      this.http.get(apiUrl).subscribe((result: any) => {
         resolve(result);
       }, (error) => {
         reject(error);

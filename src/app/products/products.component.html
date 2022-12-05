@@ -6,10 +6,13 @@
     <div class="grid -mt-3 -ml-3 -mr-3">
         <div *ngFor="let prod of productsToShow" class="col-12 md:col-6 lg:col-3 mb-3 lg:mb-0">
             <div class="p-2">
-                <div class="relative">
-                    <img class="w-full" [src]="prod.image" alt="">
-                    <button (click)="addToFavourite()" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
+                <div class="relative img-thumbnail">
+                    <img class="image" height="250px" [src]="prod.image" alt="">
+                    <button *ngIf="!favouriteProducts.includes(prod.id)" (click)="addToFavourite(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
                         <i class="pi pi-heart text-2xl text-500"></i>
+                    </button>
+                    <button *ngIf="favouriteProducts.includes(prod.id)" (click)="removeFromFavourite(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
+                        <i class="pi pi-heart text-2xl text-500 is-favourite"></i>
                     </button>
                 </div>
                 <div class="flex align-items-center justify-content-between mt-3 mb-2">

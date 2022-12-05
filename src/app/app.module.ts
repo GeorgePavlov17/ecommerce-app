@@ -41,11 +41,6 @@ import { FavouriteProductsComponent } from './favourite-products/favourite-produ
     ShoppingCartComponent,
     FavouriteProductsComponent,
 
-    // Dialog,
-    // ConfirmDialog,
-    // Header,
-    // Footer
-
   ],
   imports: [
     CommonModule,
