@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../types/Product';
 import { ProductService } from '../services/product/product.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -13,8 +12,7 @@ export class ProductsComponent implements OnInit {
   public productsToShow: Product[] = [];
 
   constructor(
-    private productService: ProductService,
-    private route: Router) { }
+    private productService: ProductService) { }
 
   ngOnInit(): void {
     this.productService.getProducts().then((result) => {
@@ -47,5 +45,4 @@ export class ProductsComponent implements OnInit {
   addToFavourite() {
 
   }
-
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../types/Product';
 import { ProductService } from '../services/product/product.service';
+import { ShoppingCartService } from '../services/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,16 +9,20 @@ import { ProductService } from '../services/product/product.service';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
+
   public products: Product[] = [];
   public productsToShow: Product[] = [];
 
   public quantityOptions: Product[] = [];
   public selectedQty: any;
-  
-  constructor(private productService: ProductService) { }
+
+  constructor(
+    private productService: ProductService,
+    private shoppingCartService: ShoppingCartService
+    ) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().then((result) => {
+    this.shoppingCartService.getProducts().then((result) => {
       result.forEach((element: Product) => {
         this.products.push(element);
       });
@@ -48,7 +53,16 @@ export class ShoppingCartComponent implements OnInit {
   quantityTotalPriceDropdown(qty: number, price: number) {
     let total = 0;
 
-    
-    this.productsToShow
+  }
+
+  dropdownTotalQtyShow() {
+    console.log('totalQty');
+  }
+
+  deleteProduct(prod: Product) {
+   this.shoppingCartService.deleteProduct(prod).then((result) => {
+    const index = this.productsToShow.indexOf(result);
+    const spliced = this.productsToShow.splice(index, 1);
+   });
   }
 }
