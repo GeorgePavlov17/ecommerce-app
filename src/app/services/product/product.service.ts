@@ -10,12 +10,25 @@ import { rejects } from 'assert';
 export class ProductService {
 
   constructor(private http: HttpClient) { }
-  private apiUrl = 'http://localhost:5000/products';
 
   getProducts(): Promise<Product[]> {
+    const apiUrl = 'http://localhost:5000/products';
    
     return new Promise((resolve, reject) => {
-      this.http.get(this.apiUrl).subscribe((result: any) => {
+      this.http.get(apiUrl).subscribe((result: any) => {
+        resolve(result);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+
+  addToFavourite(prod: Product): Promise<Product> {
+    const apiUrl = 'http://localhost:5000/favourite_products';
+    const url = `${apiUrl}/${prod.id}`;
+
+    return new Promise((resolve, reject) => {
+      this.http.post<Product>(url, prod).subscribe((result: any) => {
         resolve(result);
       }, (error) => {
         reject(error);
