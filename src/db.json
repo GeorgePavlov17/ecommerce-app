@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "type": "t-shirt",
+      "type": "T-shirt",
       "color": "white",
       "size": "M",
       "image": "https://outoforder.in/wp-content/uploads/2020/03/Plain-White-Tshirt-for-Men.jpg",
@@ -14,7 +14,7 @@
     },
     {
       "id": 2,
-      "type": "jeans",
+      "type": "Jeans",
       "color": "blue",
       "size": "M",
       "image": "https://images.wrangler.com/is/image/Wrangler/FR47MLW-HERO?$KDP-XLARGE$",
@@ -26,7 +26,7 @@
     },
     {
       "id": 3,
-      "type": "shoes",
+      "type": "Shoes",
       "color": "white",
       "size": "11",
       "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614637605-koio-1614637599.jpg?crop=1xw:1xh;center,top&resize=480:*",
@@ -39,20 +39,8 @@
   ],
   "cart_products": [
     {
-      "id": 1,
-      "type": "t-shirt",
-      "color": "white",
-      "size": "M",
-      "image": "https://outoforder.in/wp-content/uploads/2020/03/Plain-White-Tshirt-for-Men.jpg",
-      "price": 34,
-      "vat": 8,
-      "shipping": "free",
-      "quantity": 7,
-      "availability": true
-    },
-    {
       "id": 2,
-      "type": "jeans",
+      "type": "Jeans",
       "color": "blue",
       "size": "M",
       "image": "https://images.wrangler.com/is/image/Wrangler/FR47MLW-HERO?$KDP-XLARGE$",
@@ -63,22 +51,22 @@
       "availability": false
     },
     {
-      "id": 3,
-      "type": "shoes",
+      "id": 1,
+      "type": "T-shirt",
       "color": "white",
-      "size": "11",
-      "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614637605-koio-1614637599.jpg?crop=1xw:1xh;center,top&resize=480:*",
-      "price": 72,
+      "size": "M",
+      "image": "https://outoforder.in/wp-content/uploads/2020/03/Plain-White-Tshirt-for-Men.jpg",
+      "price": 34,
       "vat": 8,
       "shipping": "free",
-      "quantity": 10,
+      "quantity": 7,
       "availability": true
     }
   ],
   "favourite_products": [
     {
       "id": 1,
-      "type": "t-shirt",
+      "type": "T-shirt",
       "color": "white",
       "size": "M",
       "image": "https://outoforder.in/wp-content/uploads/2020/03/Plain-White-Tshirt-for-Men.jpg",
@@ -90,7 +78,7 @@
     },
     {
       "id": 3,
-      "type": "shoes",
+      "type": "Shoes",
       "color": "white",
       "size": "11",
       "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614637605-koio-1614637599.jpg?crop=1xw:1xh;center,top&resize=480:*",

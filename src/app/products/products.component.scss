@@ -1,6 +1,12 @@
 .is-favourite {
     &::before {
-        color: red;
+        color: rgb(232, 20, 20);
+    }
+}
+
+.is-added {
+    &::before {
+        color: rgb(10, 172, 10);
     }
 }
 
