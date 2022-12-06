@@ -1,0 +1,11 @@
+.is-favourite {
+    &::before {
+        color: green;
+    }
+}
+
+.not-favourite {
+    &::before {
+        color: red;
+    }
+}

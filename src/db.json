@@ -89,18 +89,6 @@
       "availability": true
     },
     {
-      "id": 2,
-      "type": "jeans",
-      "color": "blue",
-      "size": "M",
-      "image": "https://images.wrangler.com/is/image/Wrangler/FR47MLW-HERO?$KDP-XLARGE$",
-      "price": 55,
-      "vat": 8,
-      "shipping": "free",
-      "quantity": 6,
-      "availability": false
-    },
-    {
       "id": 3,
       "type": "shoes",
       "color": "white",

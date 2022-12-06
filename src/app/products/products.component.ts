@@ -29,7 +29,6 @@ export class ProductsComponent implements OnInit {
         return prod.id;
       });
     });
-
     this.productsToShow = this.products;
   }
 
