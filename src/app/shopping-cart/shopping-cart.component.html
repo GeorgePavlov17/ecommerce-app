@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [hasSearch]="false"></app-header>
 
 <div class="surface-section px-4 py-8 md:px-6 lg:px-8">
     <div class="flex flex-column align-items-center mb-6">
@@ -6,7 +6,7 @@
         <p class="text-600 font-medium text-xl mt-0 mb-4">FREE SHIPPING AND RETURN</p>
     </div>
     
-        <ul *ngFor="let prod of productsToShow" class="list-none p-0 m-0">
+        <ul *ngFor="let prod of productsToShow;" class="list-none p-0 m-0">
             <li
                 class="flex flex-column md:flex-row py-6 border-top-1 border-bottom-1 surface-border md:align-items-center">
                 <img class="w-12rem flex-shrink-0 mx-auto md:mx-0" [src]="prod.image" alt="">
@@ -22,9 +22,12 @@
                                 <p-dropdown [options]="quantityOptions" [(ngModel)]="selectedQty">{{ prod.quantity }}</p-dropdown>
                             </div>
                             <div class="flex flex-column sm:align-items-end">
-                                <span class="text-900 text-xl font-medium mb-2 sm:mb-3">${{ prod.price }}</span>
+                                <span *ngIf="!prod.availability else outofstock" class="text-900 text-xl font-medium mb-2 sm:mb-3">${{ '--' }}</span>
                                 <a (click)="deleteProduct(prod)" class="cursor-pointer text-600 font-medium text-sm hover:text-600 transition-colors transition-duration-300"
                                     tabindex="0"><i class="pi pi-trash text-600 mr-2 delete"></i> Remove</a>
+                                    <ng-template #outofstock>
+                                        <span class="text-900 text-xl font-medium mb-2 sm:mb-3">${{ prod.price }}</span>
+                                    </ng-template>
                             </div>
                         </div>
                     </div>
@@ -35,7 +38,7 @@
                         </span>
                         <span class="inline-flex align-items-center mb-3">
                             <i class="pi pi-send text-600 mr-2"></i>
-                            <span class="text-600 mr-2">Delivery by <span class="font-bold">Dec 23.</span></span>
+                            <span class="text-600 mr-2">Delivery by <span class="font-bold">{{ deliveryDate() }}</span></span>
                         </span>
                         <span *ngIf="prod.availability; else notAvailable" class="flex align-items-center">
                             <i class="pi pi-check text-600 mr-2 is-favourite"></i>
@@ -64,7 +67,7 @@
                 </li>
                 <li class="flex justify-content-between mb-4">
                     <span class="text-xl text-900">VAT</span>
-                    <span class="text-xl text-900">${{ '8' }}</span>
+                    <span class="text-xl text-900">$ {{ totalVat() }}</span>
                 </li>
                 <li class="flex justify-content-between border-top-1 surface-border mb-4 pt-4">
                     <span class="text-xl text-900 font-bold text-3xl">Total</span>

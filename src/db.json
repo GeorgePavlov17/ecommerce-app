@@ -7,7 +7,7 @@
       "size": "M",
       "image": "https://outoforder.in/wp-content/uploads/2020/03/Plain-White-Tshirt-for-Men.jpg",
       "price": 34,
-      "vat": 8,
+      "vat": 0,
       "shipping": "free",
       "quantity": 7,
       "availability": true
@@ -19,7 +19,7 @@
       "size": "M",
       "image": "https://images.wrangler.com/is/image/Wrangler/FR47MLW-HERO?$KDP-XLARGE$",
       "price": 55,
-      "vat": 8,
+      "vat": 0,
       "shipping": "free",
       "quantity": 6,
       "availability": false
@@ -31,7 +31,7 @@
       "size": "11",
       "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614637605-koio-1614637599.jpg?crop=1xw:1xh;center,top&resize=480:*",
       "price": 72,
-      "vat": 8,
+      "vat": 0,
       "shipping": "free",
       "quantity": 10,
       "availability": true
@@ -86,18 +86,6 @@
       "vat": 8,
       "shipping": "free",
       "quantity": 7,
-      "availability": true
-    },
-    {
-      "id": 3,
-      "type": "Shoes",
-      "color": "white",
-      "size": "11",
-      "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614637605-koio-1614637599.jpg?crop=1xw:1xh;center,top&resize=480:*",
-      "price": 72,
-      "vat": 8,
-      "shipping": "free",
-      "quantity": 10,
       "availability": true
     },
     {

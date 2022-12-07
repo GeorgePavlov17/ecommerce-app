@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild, ElementRef, Input } from '@angular/core';
 import { Product } from '../types/Product';
 import { ProductService } from '../services/product/product.service';
 
@@ -9,6 +9,7 @@ import { ProductService } from '../services/product/product.service';
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('searchBox') searchBox!: ElementRef;
+  @Input() hasSearch: boolean = true;
   @Output() onSearch = new EventEmitter<string>();
 
   public products: Product[] = [];

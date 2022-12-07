@@ -17,7 +17,7 @@ export class ShoppingCartComponent implements OnInit {
 
   constructor(
     private shoppingCartService: ShoppingCartService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.shoppingCartService.getProducts().then((result) => {
@@ -35,7 +35,12 @@ export class ShoppingCartComponent implements OnInit {
     let total = 0;
 
     this.productsToShow.forEach((product: any) => {
-      total += Number(product.price) + Number(product.vat);
+
+      if (product.availability === true) {
+        total += Number(product.price);
+      } else {
+        total -= product.availability;
+      }
     });
     return total;
   }
@@ -45,22 +50,42 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   totalWithVatPrice() {
-    return this.totalCartPrice() + Number(8);
+    return this.totalCartPrice() + this.totalVat();
   }
 
-  quantityTotalPriceDropdown(qty: number, price: number) {
-    let total = 0;
+  // quantityTotalPriceDropdown(qty: number, price: number) {
+  //   let total = 0;
 
+  // }
+
+  // dropdownTotalQtyShow() {
+  //   console.log('totalQty');
+  // }
+
+  deliveryDate() {
+    const d = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    return d.toDateString();
   }
 
-  dropdownTotalQtyShow() {
-    console.log('totalQty');
+  totalVat() {
+    let numOfProd = 0;
+
+    for (let i = 0; i < this.productsToShow.length; i++) {
+      numOfProd++;
+    }
+
+    this.productsToShow.forEach((product: any) => {
+      if (product.availability === false) {
+        numOfProd--;
+      }
+    });
+    return Number(numOfProd * 8);
   }
 
   deleteProduct(prod: Product) {
-   this.shoppingCartService.deleteProduct(prod).then((result) => {
-    const index = this.productsToShow.indexOf(result);
-    const spliced = this.productsToShow.splice(index, 1);
-   });
+    this.shoppingCartService.deleteProduct(prod).then((result) => {
+      const index = this.productsToShow.indexOf(result);
+      const spliced = this.productsToShow.splice(index, 1);
+    });
   }
 }
