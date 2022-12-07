@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   public products: Product[] = [];
   public productsToShow: Product[] = [];
   public favouriteProducts: number[] = [];
+  public loading: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -37,18 +38,22 @@ export class ProductsComponent implements OnInit {
   }
 
   searchProducts(query: string): any {
-    const searchedProduct: string = query;
 
-    if (searchedProduct != '' && searchedProduct.length >= 3) {
+    if (query !== '' && query.length >= 3) {
+      this.loading = true;
       this.productsToShow = [];
 
-      const filtered = this.products.filter(e => {
-        return e.type.toLocaleLowerCase().indexOf(searchedProduct) > -1;
-      });
-
-      this.productsToShow = filtered;
+      setTimeout(() => {
+        const filtered = this.products.filter(e => {
+          return e.type.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) > -1;
+        });
+        this.productsToShow = filtered;
+        this.loading = false;
+      }, 1000);
+     
     } else {
       this.productsToShow = this.products;
+      this.loading = false;
     }
   }
 

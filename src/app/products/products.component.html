@@ -1,5 +1,6 @@
 <app-header (onSearch)="searchProducts($event)"></app-header>
-<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+
+<div *ngIf="!loading; else loader" class="surface-section px-4 py-8 md:px-6 lg:px-8">
     <div class="text-900 font-medium text-4xl mb-4">Popular Items</div>
     <!-- <p class="mt-0 p-0 mb-5 text-600 text-2xl">From Brand</p> -->
 
@@ -8,20 +9,18 @@
             <div class="p-2">
                 <div class="relative img-thumbnail">
                     <img class="image" height="250px" [src]="prod.image" alt="">
+                    <span *ngIf="!prod.availability" type="text" class="out-of-stock">
+                        out of stock
+                    </span>
                     <button *ngIf="!favouriteProducts.includes(prod.id)" (click)="addToFavourite(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
                         <i class="pi pi-heart-fill text-2xl text-500"></i>
                     </button>
                     <button *ngIf="favouriteProducts.includes(prod.id)" (click)="removeFromFavourite(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
                         <i class="pi pi-heart-fill text-2xl text-500 is-favourite"></i>
                     </button>
-                    <button *ngIf="prod.availability; else notAvailable" (click)="addToBasket(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="bottom: 1rem; right: 1rem">
+                    <button *ngIf="prod.availability" (click)="addToBasket(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="bottom: 1rem; right: 1rem">
                         <i class="pi pi-plus text-2xl text-500 is-added"></i>
                     </button>
-                    <ng-template #notAvailable>
-                        <span type="text" style="position: absolute; text-align: center; width: 100%; display: block; font-size: x-large; top: 50%; left: 50%; color: red; transform: translate(-50%, -50%);">
-                            out of stock
-                        </span>
-                    </ng-template>
                 </div>
                 <div class="flex align-items-center justify-content-between mt-3 mb-2">
                     <span class="text-900 font-medium text-xl">{{ prod.type }}</span>
@@ -32,3 +31,9 @@
         </div>
     </div>
 </div>
+
+<ng-template #loader>
+    <div class="loading-spinner">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+</ng-template>

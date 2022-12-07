@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
+import { Product } from '../types/Product';
+import { ProductService } from '../services/product/product.service';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +11,32 @@ export class HeaderComponent implements OnInit {
   @ViewChild('searchBox') searchBox!: ElementRef;
   @Output() onSearch = new EventEmitter<string>();
 
-  constructor() { }
+  public products: Product[] = [];
+  public productsToShow: Product[] = [];
+  // public searchShown: boolean = false;
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.productService.getProducts().then((result) => {
+      result.forEach((element: Product) => {
+        this.products.push(element);
+      });
+
+    }, (error) => {
+      console.log('error!');
+    });
+    this.productsToShow = this.products;
   }
 
   search() {
-    const query = this.searchBox.nativeElement.value;
-    this.onSearch.emit(query);
+    const name = this.searchBox.nativeElement.value;
+    this.onSearch.emit(name);
+
+  }
+
+  showCategories() {
+   
   }
 
 }

@@ -4,6 +4,12 @@
     }
 }
 
+.is-added {
+    &::before {
+        color: rgb(10, 172, 10);
+    }
+}
+
 .image {
     object-fit: cover;
     width: 100%;
@@ -19,4 +25,11 @@
 .img-thumbnail {
     width: 100%;
     padding-top: 137%;
+}
+
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }

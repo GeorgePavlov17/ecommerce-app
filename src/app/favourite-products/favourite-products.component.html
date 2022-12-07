@@ -1,17 +1,23 @@
-<app-header></app-header>
+<app-header (onSearch)="searchProducts($event)"></app-header>
 <div class="surface-section px-4 py-8 md:px-6 lg:px-8">
     <div class="text-900 font-medium text-4xl mb-4">Your favourite Items</div>
 
-    <div class="grid -mt-3 -ml-3 -mr-3">
+    <div *ngIf="!loading; else loader" class="grid -mt-3 -ml-3 -mr-3">
         <div *ngFor="let prod of favouriteProducts" class="col-12 md:col-6 lg:col-3 mb-3 lg:mb-0">
             <div class="p-2">
                 <div class="relative img-thumbnail" style="display: block; overflow: hidden;">
                     <img class="image" [src]="prod.image" alt="">
-                    <button *ngIf="!favouriteProducts.includes(prod)" (click)="addToFavourite(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
-                        <i class="pi pi-heart text-2xl text-500"></i>
+                    <span *ngIf="!prod.availability" type="text" class="out-of-stock">
+                        out of stock
+                    </span>
+                    <button *ngIf="!favouriteProducts.includes(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
+                        <i class="pi pi-heart-fill text-2xl text-500"></i>
                     </button>
                     <button *ngIf="favouriteProducts.includes(prod)" (click)="removeFromFavourite(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="top: 1rem; right: 1rem">
-                        <i class="pi pi-heart text-2xl text-500 is-favourite"></i>
+                        <i class="pi pi-heart-fill text-2xl text-500 is-favourite"></i>
+                    </button>
+                    <button *ngIf="prod.availability" (click)="addToBasket(prod)" type="text" pRipple class="p-link w-3rem h-3rem surface-0 hover:surface-200 border-circle shadow-2 inline-flex align-items-center justify-content-center absolute transition-colors transition-duration-300" style="bottom: 1rem; right: 1rem">
+                        <i class="pi pi-plus text-2xl text-500 is-added"></i>
                     </button>
                 </div>
                 <div class="flex align-items-center justify-content-between mt-3 mb-2">
@@ -23,3 +29,9 @@
         </div>
     </div>
 </div>
+
+<ng-template #loader>
+    <div class="loading-spinner">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+</ng-template>

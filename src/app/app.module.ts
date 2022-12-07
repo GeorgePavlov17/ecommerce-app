@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DividerModule } from "primeng/divider";
 import { FormsModule } from '@angular/forms';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +40,7 @@ import { FavouriteProductsComponent } from './favourite-products/favourite-produ
     ProductsComponent,
     HeaderComponent,
     ShoppingCartComponent,
-    FavouriteProductsComponent,
+    FavouriteProductsComponent
 
   ],
   imports: [
@@ -50,6 +51,7 @@ import { FavouriteProductsComponent } from './favourite-products/favourite-produ
     InputNumberModule,
     DividerModule,
     FormsModule,
+    ProgressSpinnerModule,
 
     SharedModule,
     TableModule,

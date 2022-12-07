@@ -51,18 +51,6 @@
       "availability": false
     },
     {
-      "id": 1,
-      "type": "T-shirt",
-      "color": "white",
-      "size": "M",
-      "image": "https://outoforder.in/wp-content/uploads/2020/03/Plain-White-Tshirt-for-Men.jpg",
-      "price": 34,
-      "vat": 8,
-      "shipping": "free",
-      "quantity": 7,
-      "availability": true
-    },
-    {
       "id": 3,
       "type": "Shoes",
       "color": "white",
@@ -72,6 +60,18 @@
       "vat": 8,
       "shipping": "free",
       "quantity": 10,
+      "availability": true
+    },
+    {
+      "id": 1,
+      "type": "T-shirt",
+      "color": "white",
+      "size": "M",
+      "image": "https://outoforder.in/wp-content/uploads/2020/03/Plain-White-Tshirt-for-Men.jpg",
+      "price": 34,
+      "vat": 8,
+      "shipping": "free",
+      "quantity": 7,
       "availability": true
     }
   ],
@@ -99,6 +99,18 @@
       "shipping": "free",
       "quantity": 10,
       "availability": true
+    },
+    {
+      "id": 2,
+      "type": "Jeans",
+      "color": "blue",
+      "size": "M",
+      "image": "https://images.wrangler.com/is/image/Wrangler/FR47MLW-HERO?$KDP-XLARGE$",
+      "price": 55,
+      "vat": 8,
+      "shipping": "free",
+      "quantity": 6,
+      "availability": false
     }
   ]
 }
