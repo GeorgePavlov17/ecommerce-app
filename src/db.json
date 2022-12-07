@@ -61,6 +61,18 @@
       "shipping": "free",
       "quantity": 7,
       "availability": true
+    },
+    {
+      "id": 3,
+      "type": "Shoes",
+      "color": "white",
+      "size": "11",
+      "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614637605-koio-1614637599.jpg?crop=1xw:1xh;center,top&resize=480:*",
+      "price": 72,
+      "vat": 8,
+      "shipping": "free",
+      "quantity": 10,
+      "availability": true
     }
   ],
   "favourite_products": [

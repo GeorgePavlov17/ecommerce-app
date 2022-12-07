@@ -69,7 +69,7 @@ export class ProductsComponent implements OnInit {
 
   addToBasket(prod: Product) {
     this.shoppingCartService.addToBasket(prod).then((result) => {
-      this.productsToShow.push(result);
+      //add toastController here 
     }, (error) => {
       console.log('error!');
     });
