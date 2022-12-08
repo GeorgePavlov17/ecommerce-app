@@ -13,7 +13,7 @@ export class ShoppingCartComponent implements OnInit {
   public productsToShow: Product[] = [];
 
   public quantityProducts: number[] = [];
-  public selectedQty: { [g:number]: number } = {};
+  public selectedQty: { [g: number]: number } = {};
 
   constructor(
     private shoppingCartService: ShoppingCartService
@@ -34,11 +34,11 @@ export class ShoppingCartComponent implements OnInit {
 
   getProductQtyAsArray(quantity: number) {
     const arr = [];
-    for(let i = 1; i <= quantity; i++) {
+    for (let i = 1; i <= quantity; i++) {
       arr.push(i);
     }
     return arr;
-  } 
+  }
 
   totalCartPrice() {
     let total = 0;
@@ -54,22 +54,22 @@ export class ShoppingCartComponent implements OnInit {
     return total;
   }
 
-  totalProductPrice(prodPrice: number, vat: number) {
-    return Number(prodPrice) + Number(vat);
+  totalProductPrice(prod: Product): number {
+
+    if (this.selectedQty[prod.id]) {
+      const prodPrice = Number(prod.price);
+      const singleProd = Number(this.selectedQty[prod.id]);
+
+      return prodPrice * singleProd;
+      
+    } else {
+      return prod.price;
+    }
   }
 
   totalWithVatPrice() {
     return this.totalCartPrice() + this.totalVat();
   }
-
-  // quantityTotalPriceDropdown(qty: number, price: number) {
-  //   let total = 0;
-
-  // }
-
-  // dropdownTotalQtyShow() {
-  //   console.log('totalQty');
-  // }
 
   deliveryDate() {
     const d = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);

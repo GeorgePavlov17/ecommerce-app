@@ -22,11 +22,11 @@
                                 <p-dropdown [options]="getProductQtyAsArray(prod.quantity)" [(ngModel)]="selectedQty[prod.id]"></p-dropdown>
                             </div>
                             <div class="flex flex-column sm:align-items-end">
-                                <span *ngIf="!prod.availability else outofstock" class="text-900 text-xl font-medium mb-2 sm:mb-3">Last price: ${{ prod.price }}</span>
+                                <span *ngIf="!prod.availability else instock" class="text-900 text-xl font-medium mb-2 sm:mb-3">Last price: ${{ prod.price }}</span>
                                 <a (click)="deleteProduct(prod)" class="cursor-pointer text-600 font-medium text-sm hover:text-600 transition-colors transition-duration-300"
                                     tabindex="0"><i class="pi pi-trash text-600 mr-2 delete"></i> Remove</a>
-                                    <ng-template #outofstock>
-                                        <span class="text-900 text-xl font-medium mb-2 sm:mb-3">${{ prod.price }}</span>
+                                    <ng-template #instock>
+                                        <span class="text-900 text-xl font-medium mb-2 sm:mb-3">${{ totalProductPrice(prod) }}</span>
                                     </ng-template>
                             </div>
                         </div>
