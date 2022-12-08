@@ -12,8 +12,8 @@ export class ShoppingCartComponent implements OnInit {
   public products: Product[] = [];
   public productsToShow: Product[] = [];
 
-  public quantityOptions: Product[] = [];
-  public selectedQty: any;
+  public quantityProducts: number[] = [];
+  public selectedQty: { [g:number]: number } = {};
 
   constructor(
     private shoppingCartService: ShoppingCartService
@@ -23,6 +23,7 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.getProducts().then((result) => {
       result.forEach((element: Product) => {
         this.products.push(element);
+        this.selectedQty[element.id] = 1;
       });
 
     }, (error) => {
@@ -31,13 +32,21 @@ export class ShoppingCartComponent implements OnInit {
     this.productsToShow = this.products;
   }
 
+  getProductQtyAsArray(quantity: number) {
+    const arr = [];
+    for(let i = 1; i <= quantity; i++) {
+      arr.push(i);
+    }
+    return arr;
+  } 
+
   totalCartPrice() {
     let total = 0;
 
     this.productsToShow.forEach((product: any) => {
 
       if (product.availability === true) {
-        total += Number(product.price);
+        total += Number(product.price) * this.selectedQty[product.id];
       } else {
         total -= product.availability;
       }
