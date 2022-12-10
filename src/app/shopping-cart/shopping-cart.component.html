@@ -9,7 +9,7 @@
         <ul *ngFor="let prod of productsToShow;" class="list-none p-0 m-0">
             <li
                 class="flex flex-column md:flex-row py-6 border-top-1 border-bottom-1 surface-border md:align-items-center">
-                <img class="w-12rem flex-shrink-0 mx-auto md:mx-0" [src]="prod.image" alt="">
+                <img class="w-12rem flex-shrink-0 mx-auto md:mx-0" style="border-radius: 8px;" [src]="prod.image" alt="">
                 <div class="flex-auto py-5 md:pl-5">
                     <div
                         class="flex flex-wrap align-items-start sm:align-items-center sm:flex-row sm:justify-content-between surface-border pb-6">
