@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, Renderer2, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from '../services/product/product.service';
 import { Product } from '../types/Product';
+import { DOCUMENT } from '@angular/common';
 
 
 @Component({
@@ -10,15 +11,20 @@ import { Product } from '../types/Product';
 })
 export class HomePageComponent implements OnInit {
   @ViewChild('searchBox') searchBox!: ElementRef;
+  theme: Theme = 'light-theme';
 
   public products: Product[] = [];
   public productsToShow: Product[] = [];
-  public searchesToShow: boolean = false;
+  // public searchesToShow: boolean = false;
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private renderer: Renderer2,
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
-
+    this.initializeTheme();
   }
 
   // toggleSearch() {
@@ -36,6 +42,18 @@ export class HomePageComponent implements OnInit {
   //     this.productsToShow = this.products;
   //   }
   // }
+
+  initializeTheme = (): void =>
+    this.renderer.addClass(this.document.body, this.theme);
+
+  changeTheme() {
+    this.document.body.classList.replace(
+      this.theme, 
+      this.theme === 'light-theme' 
+      ? (this.theme = 'dark-theme')
+      : (this.theme = 'light-theme')
+    );
+  }
 
   searchProducts(): any {
     const searchedProduct = this.searchBox.nativeElement.value;
@@ -63,3 +81,5 @@ export class HomePageComponent implements OnInit {
     }
   }
 }
+
+export type Theme = 'light-theme' | 'dark-theme';
