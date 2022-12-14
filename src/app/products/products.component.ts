@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   public products: Product[] = [];
   public productsToShow: Product[] = [];
   public favouriteProducts: number[] = [];
+  public sortedByPrice: Product[] = [];
   public loading: boolean = false;
 
   constructor(
@@ -35,6 +36,7 @@ export class ProductsComponent implements OnInit {
       });
     });
     this.productsToShow = this.products;
+    this.sortedByPrice = this.productsToShow;
   }
 
   searchProducts(query: string): any {
@@ -78,5 +80,10 @@ export class ProductsComponent implements OnInit {
     }, (error) => {
       console.log('error!');
     });
+  }
+
+  sortedProducts() {
+    const sorted = this.sortedByPrice.sort((a, b) => a.price - b.price);
+    // return this.productsToShow = sorted;
   }
 }
