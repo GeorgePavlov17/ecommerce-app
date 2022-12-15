@@ -12,7 +12,6 @@ export class ProductsComponent implements OnInit {
   public products: Product[] = [];
   public productsToShow: Product[] = [];
   public favouriteProducts: number[] = [];
-  public sortedByPrice: Product[] = [];
   public loading: boolean = false;
 
   constructor(
@@ -36,7 +35,7 @@ export class ProductsComponent implements OnInit {
       });
     });
     this.productsToShow = this.products;
-    this.sortedByPrice = this.productsToShow;
+    this.productsToShow = this.productsToShow.sort((low, high) => high.price - low.price);
   }
 
   searchProducts(query: string): any {
@@ -82,8 +81,25 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  sortedProducts() {
-    const sorted = this.sortedByPrice.sort((a, b) => a.price - b.price);
-    // return this.productsToShow = sorted;
+  sorted(event: any) {
+    switch (event.target.value) {
+      case "Low": 
+      {
+        this.productsToShow = this.productsToShow.sort((low, high) => low.price - high.price);
+        break;
+      }
+
+      case "High":
+      {
+        this.productsToShow = this.productsToShow.sort((low, high) => high.price - low.price);
+        break;
+      }
+
+      default: {
+        this.productsToShow = this.productsToShow.sort((low, high) => low.price - high.price);
+        break;
+      }
+    }
+    return this.productsToShow;
   }
 }
